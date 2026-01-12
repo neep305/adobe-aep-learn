@@ -16,7 +16,7 @@ adobe-aep-learn/
 
 ## 학습 방법
 
-상세한 학습 플랜은 [aep-study-plan.plan.md](./aep-study-plan.plan.md)를 참조하세요.
+상세한 학습 플랜은 [aep-study-plan.md](./docs/aep-study-plan.md)를 참조하세요.
 
 ## 시작하기
 
