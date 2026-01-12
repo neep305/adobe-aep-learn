@@ -1,0 +1,44 @@
+{
+  "id": "aep-learning-env",
+  "name": "AEP Learning Environment",
+  "values": [
+    {
+      "key": "organizationId",
+      "value": "YOUR_ORG_ID",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "apiKey",
+      "value": "YOUR_API_KEY",
+      "type": "secret",
+      "enabled": true
+    },
+    {
+      "key": "clientSecret",
+      "value": "YOUR_CLIENT_SECRET",
+      "type": "secret",
+      "enabled": true
+    },
+    {
+      "key": "accessToken",
+      "value": "YOUR_ACCESS_TOKEN",
+      "type": "secret",
+      "enabled": true
+    },
+    {
+      "key": "sandboxName",
+      "value": "YOUR_SANDBOX_NAME",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "globalCompanyId",
+      "value": "YOUR_GLOBAL_COMPANY_ID",
+      "type": "default",
+      "enabled": true
+    }
+  ],
+  "_postman_variable_scope": "environment"
+}
+

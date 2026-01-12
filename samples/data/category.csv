@@ -1,0 +1,11 @@
+category_id,name,description,parent_category
+CAT001,Electronics,Devices and gadgets for technology,None
+CAT002,Appliances,Kitchen and home appliances,None
+CAT003,Sports,Fitness and outdoor sports equipment,None
+CAT004,Books,Fiction and non-fiction books,None
+CAT005,Games,Board games and puzzles,None
+CAT006,Home,Home decor and accessories,None
+CAT007,Clothing,Men's and women's apparel,None
+CAT008,Beauty,Cosmetics and personal care,None
+CAT009,Toys,Children's toys and games,None
+CAT010,Automotive,Car parts and accessories,None

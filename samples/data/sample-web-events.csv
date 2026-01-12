@@ -1,0 +1,12 @@
+eventId,timestamp,personId,eventType,pageUrl,pageName,referrerUrl,browser,device,browserWidth,browserHeight
+evt001,2023-01-15T10:30:00Z,12345,page_view,https://luma.example.com/home,Luma Home Page,,Chrome,Desktop,1920,1080
+evt002,2023-01-15T10:31:15Z,12345,page_view,https://luma.example.com/products,Shoes Collection,https://luma.example.com/home,Chrome,Desktop,1920,1080
+evt003,2023-01-15T10:32:45Z,12345,add_to_cart,https://luma.example.com/products/shoe-123,Shoe Product Page,https://luma.example.com/products,Chrome,Desktop,1920,1080
+evt004,2023-01-15T10:35:00Z,12346,page_view,https://luma.example.com/home,Luma Home Page,,Safari,Mobile,375,667
+evt005,2023-01-15T10:36:20Z,12346,page_view,https://luma.example.com/products,Tops Collection,https://luma.example.com/home,Safari,Mobile,375,667
+evt006,2023-01-15T11:00:00Z,12347,page_view,https://luma.example.com/home,Luma Home Page,,Firefox,Desktop,1920,1080
+evt007,2023-01-15T11:01:30Z,12347,purchase,https://luma.example.com/checkout,Checkout Page,https://luma.example.com/cart,Firefox,Desktop,1920,1080
+evt008,2023-01-15T14:20:00Z,12348,page_view,https://luma.example.com/home,Luma Home Page,,Chrome,Desktop,1366,768
+evt009,2023-01-15T14:21:15Z,12348,page_view,https://luma.example.com/about,About Us,https://luma.example.com/home,Chrome,Desktop,1366,768
+evt010,2023-01-15T15:45:00Z,12349,page_view,https://luma.example.com/home,Luma Home Page,,Edge,Desktop,1600,900
+

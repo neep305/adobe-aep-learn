@@ -1,0 +1,7 @@
+personId,email,firstName,lastName,phoneNumber,city,country,loyaltyPoints,joinDate,membershipStatus
+12345,john.doe@example.com,John,Doe,+1234567890,New York,USA,1250,2022-01-15,Premium
+12346,jane.smith@example.com,Jane,Smith,+1234567891,Los Angeles,USA,850,2022-03-20,Standard
+12347,bob.johnson@example.com,Bob,Johnson,+1234567892,Chicago,USA,2100,2021-11-10,Premium
+12348,alice.brown@example.com,Alice,Brown,+1234567893,San Francisco,USA,550,2022-05-05,Standard
+12349,charlie.wilson@example.com,Charlie,Wilson,+1234567894,Miami,USA,1750,2021-09-30,Premium
+

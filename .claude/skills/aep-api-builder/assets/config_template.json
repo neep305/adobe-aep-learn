@@ -1,0 +1,53 @@
+{
+  "_comment": "Adobe Experience Platform API Configuration",
+  "_choose_one_auth_method": "Use either OAuth (recommended) or JWT (legacy)",
+
+  "auth_method": "oauth",
+
+  "_oauth_config": "OAuth Server-to-Server (Recommended)",
+  "client_id": "YOUR_CLIENT_ID_HERE",
+  "client_secret": "YOUR_CLIENT_SECRET_HERE",
+  "org_id": "YOUR_ORG_ID@AdobeOrg",
+  "sandbox_name": "YOUR_SANDBOX_NAME",
+  "scopes": [
+    "openid",
+    "AdobeID",
+    "read_organizations",
+    "additional_info.projectedProductContext",
+    "session"
+  ],
+
+  "_jwt_config_legacy": "JWT Authentication (Being Deprecated - Use for existing integrations only)",
+  "_jwt_fields": {
+    "auth_method": "jwt",
+    "client_id": "YOUR_CLIENT_ID_HERE",
+    "client_secret": "YOUR_CLIENT_SECRET_HERE",
+    "technical_account_id": "YOUR_TECHNICAL_ACCOUNT_ID@techacct.adobe.com",
+    "org_id": "YOUR_ORG_ID@AdobeOrg",
+    "private_key_path": "/path/to/private.key",
+    "sandbox_name": "prod"
+  },
+
+  "_instructions": {
+    "auth_method": "Set to 'oauth' (recommended) or 'jwt' (legacy)",
+    "client_id": "Get from Adobe Developer Console > Project > Credentials",
+    "client_secret": "Get from Adobe Developer Console > Project > Credentials",
+    "org_id": "Get from Adobe Developer Console > Project Overview (format: ABC123@AdobeOrg)",
+    "sandbox_name": "Use 'prod' for production or your sandbox name (e.g., 'dev', 'staging')",
+    "scopes": "OAuth scopes - use default list or customize based on API needs",
+    "technical_account_id": "(JWT only) Get from Adobe Developer Console > Service Account",
+    "private_key_path": "(JWT only) Path to your private.key file downloaded from Adobe I/O"
+  },
+
+  "_setup_instructions": {
+    "step_1": "Go to Adobe Developer Console: https://developer.adobe.com/console",
+    "step_2": "Create new project or select existing project",
+    "step_3": "Add API: Experience Platform API",
+    "step_4_oauth": "Select 'OAuth Server-to-Server' credential type (recommended)",
+    "step_4_jwt": "Or select 'Service Account (JWT)' for legacy auth (being deprecated)",
+    "step_5": "Copy client_id, client_secret, and org_id from the credential page",
+    "step_6": "Update this config file with your values",
+    "step_7": "For JWT: Download private.key and update private_key_path",
+    "step_8": "Verify sandbox_name matches your target environment"
+  }
+}

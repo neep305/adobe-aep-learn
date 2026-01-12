@@ -1,0 +1,11 @@
+order_id,customer_id,order_date,total_amount,status,payment_method,shipping_address
+ORD001,CUST001,2023-10-01,299.98,Completed,Credit Card,New York, USA
+ORD002,CUST002,2023-10-02,79.99,Shipped,PayPal,Los Angeles, USA
+ORD003,CUST003,2023-10-03,129.99,Processing,Debit Card,Chicago, USA
+ORD004,CUST004,2023-10-04,199.99,Completed,Credit Card,San Francisco, USA
+ORD005,CUST005,2023-10-05,49.99,Delivered,PayPal,Miami, USA
+ORD006,CUST006,2023-10-06,1299.99,Shipped,Credit Card,Seattle, USA
+ORD007,CUST007,2023-10-07,29.99,Completed,Debit Card,Boston, USA
+ORD008,CUST008,2023-10-08,24.99,Processing,PayPal,Austin, USA
+ORD009,CUST009,2023-10-09,12.99,Delivered,Credit Card,Denver, USA
+ORD010,CUST010,2023-10-10,899.99,Completed,PayPal,Portland, USA

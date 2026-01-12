@@ -1,0 +1,491 @@
+{
+  "_comment": "Adobe Experience Platform Segment Definition Templates",
+  "_usage": "Copy and modify these templates for creating audience segments via API",
+  "_endpoint": "POST https://platform.adobe.io/data/core/ups/segment/definitions",
+
+  "templates": {
+    "1_basic_profile_attribute": {
+      "name": "Premium Members",
+      "description": "Customers with premium membership status",
+      "expression": {
+        "type": "PQL",
+        "format": "pql/text",
+        "value": "_{TENANT_ID}.membershipTier = \"premium\""
+      },
+      "schema": {
+        "name": "_xdm.context.profile"
+      },
+      "evaluationInfo": {
+        "batch": {
+          "enabled": true
+        },
+        "continuous": {
+          "enabled": true
+        },
+        "synchronous": {
+          "enabled": false
+        }
+      },
+      "mergePolicyId": "{MERGE_POLICY_ID}"
+    },
+
+    "2_demographic_segment": {
+      "name": "Young Adults in California",
+      "description": "Users aged 18-34 living in California",
+      "expression": {
+        "type": "PQL",
+        "format": "pql/text",
+        "value": "homeAddress.stateProvince = \"CA\" and person.birthDate.occurs < (today - (duration 18 years)) and person.birthDate.occurs > (today - (duration 35 years))"
+      },
+      "schema": {
+        "name": "_xdm.context.profile"
+      },
+      "evaluationInfo": {
+        "batch": {
+          "enabled": true
+        },
+        "continuous": {
+          "enabled": true
+        },
+        "synchronous": {
+          "enabled": false
+        }
+      },
+      "mergePolicyId": "{MERGE_POLICY_ID}"
+    },
+
+    "3_email_optin_segment": {
+      "name": "Email Marketing Subscribers",
+      "description": "Active email subscribers who have not opted out",
+      "expression": {
+        "type": "PQL",
+        "format": "pql/text",
+        "value": "personalEmail.address.isNotNull() and personalEmail.status = \"active\" and optInOut.email.optOut = false"
+      },
+      "schema": {
+        "name": "_xdm.context.profile"
+      },
+      "evaluationInfo": {
+        "batch": {
+          "enabled": true
+        },
+        "continuous": {
+          "enabled": true
+        },
+        "synchronous": {
+          "enabled": false
+        }
+      },
+      "mergePolicyId": "{MERGE_POLICY_ID}"
+    },
+
+    "4_high_value_customers": {
+      "name": "High-Value Customers",
+      "description": "Customers with lifetime value greater than $10,000",
+      "expression": {
+        "type": "PQL",
+        "format": "pql/text",
+        "value": "_{TENANT_ID}.customerLifetimeValue > 10000"
+      },
+      "schema": {
+        "name": "_xdm.context.profile"
+      },
+      "evaluationInfo": {
+        "batch": {
+          "enabled": true
+        },
+        "continuous": {
+          "enabled": true
+        },
+        "synchronous": {
+          "enabled": false
+        }
+      },
+      "mergePolicyId": "{MERGE_POLICY_ID}"
+    },
+
+    "5_recent_purchasers": {
+      "name": "Recent Purchasers (Last 30 Days)",
+      "description": "Customers who made a purchase in the last 30 days",
+      "expression": {
+        "type": "PQL",
+        "format": "pql/text",
+        "value": "workingSet().xEvent[eventType = \"commerce.purchases\" and timestamp occurs < 30 days before now].exists()"
+      },
+      "schema": {
+        "name": "_xdm.context.profile"
+      },
+      "evaluationInfo": {
+        "batch": {
+          "enabled": true
+        },
+        "continuous": {
+          "enabled": false
+        },
+        "synchronous": {
+          "enabled": false
+        }
+      },
+      "mergePolicyId": "{MERGE_POLICY_ID}"
+    },
+
+    "6_cart_abandoners": {
+      "name": "Cart Abandoners (Last 7 Days)",
+      "description": "Users who added items to cart but didn't purchase in last 7 days",
+      "expression": {
+        "type": "PQL",
+        "format": "pql/text",
+        "value": "workingSet().xEvent[eventType = \"commerce.productListAdds\" and timestamp occurs < 7 days before now].exists() and not(workingSet().xEvent[eventType = \"commerce.purchases\" and timestamp occurs < 7 days before now].exists())"
+      },
+      "schema": {
+        "name": "_xdm.context.profile"
+      },
+      "evaluationInfo": {
+        "batch": {
+          "enabled": true
+        },
+        "continuous": {
+          "enabled": false
+        },
+        "synchronous": {
+          "enabled": false
+        }
+      },
+      "mergePolicyId": "{MERGE_POLICY_ID}"
+    },
+
+    "7_frequent_browsers": {
+      "name": "Frequent Website Visitors",
+      "description": "Users with 10+ page views in the last 7 days",
+      "expression": {
+        "type": "PQL",
+        "format": "pql/text",
+        "value": "workingSet().xEvent[eventType = \"web.webpagedetails.pageViews\" and timestamp occurs < 7 days before now].count() >= 10"
+      },
+      "schema": {
+        "name": "_xdm.context.profile"
+      },
+      "evaluationInfo": {
+        "batch": {
+          "enabled": true
+        },
+        "continuous": {
+          "enabled": false
+        },
+        "synchronous": {
+          "enabled": false
+        }
+      },
+      "mergePolicyId": "{MERGE_POLICY_ID}"
+    },
+
+    "8_product_interest": {
+      "name": "Electronics Product Viewers",
+      "description": "Users who viewed electronics products in the last 14 days",
+      "expression": {
+        "type": "PQL",
+        "format": "pql/text",
+        "value": "workingSet().xEvent[eventType = \"commerce.productViews\" and productListItems.exists(productCategories.exists(categoryName = \"Electronics\")) and timestamp occurs < 14 days before now].exists()"
+      },
+      "schema": {
+        "name": "_xdm.context.profile"
+      },
+      "evaluationInfo": {
+        "batch": {
+          "enabled": true
+        },
+        "continuous": {
+          "enabled": false
+        },
+        "synchronous": {
+          "enabled": false
+        }
+      },
+      "mergePolicyId": "{MERGE_POLICY_ID}"
+    },
+
+    "9_inactive_customers": {
+      "name": "Inactive Customers (No Activity 60+ Days)",
+      "description": "Previously active customers with no activity in 60+ days",
+      "expression": {
+        "type": "PQL",
+        "format": "pql/text",
+        "value": "workingSet().xEvent[timestamp occurs < 180 days before now].exists() and not(workingSet().xEvent[timestamp occurs < 60 days before now].exists())"
+      },
+      "schema": {
+        "name": "_xdm.context.profile"
+      },
+      "evaluationInfo": {
+        "batch": {
+          "enabled": true
+        },
+        "continuous": {
+          "enabled": false
+        },
+        "synchronous": {
+          "enabled": false
+        }
+      },
+      "mergePolicyId": "{MERGE_POLICY_ID}"
+    },
+
+    "10_vip_repeat_buyers": {
+      "name": "VIP Repeat Buyers",
+      "description": "Customers with 3+ purchases in the last 90 days",
+      "expression": {
+        "type": "PQL",
+        "format": "pql/text",
+        "value": "workingSet().xEvent[eventType = \"commerce.purchases\" and timestamp occurs < 90 days before now].count() >= 3"
+      },
+      "schema": {
+        "name": "_xdm.context.profile"
+      },
+      "evaluationInfo": {
+        "batch": {
+          "enabled": true
+        },
+        "continuous": {
+          "enabled": false
+        },
+        "synchronous": {
+          "enabled": false
+        }
+      },
+      "mergePolicyId": "{MERGE_POLICY_ID}"
+    },
+
+    "11_high_order_value": {
+      "name": "High Average Order Value",
+      "description": "Customers with average order value over $200",
+      "expression": {
+        "type": "PQL",
+        "format": "pql/text",
+        "value": "workingSet().xEvent[eventType = \"commerce.purchases\" and commerce.order.priceTotal > 200 and timestamp occurs < 180 days before now].exists()"
+      },
+      "schema": {
+        "name": "_xdm.context.profile"
+      },
+      "evaluationInfo": {
+        "batch": {
+          "enabled": true
+        },
+        "continuous": {
+          "enabled": false
+        },
+        "synchronous": {
+          "enabled": false
+        }
+      },
+      "mergePolicyId": "{MERGE_POLICY_ID}"
+    },
+
+    "12_mobile_app_users": {
+      "name": "Mobile App Users",
+      "description": "Users who have used mobile app in last 30 days",
+      "expression": {
+        "type": "PQL",
+        "format": "pql/text",
+        "value": "workingSet().xEvent[environment.type = \"application\" and device.type in [\"mobile\", \"tablet\"] and timestamp occurs < 30 days before now].exists()"
+      },
+      "schema": {
+        "name": "_xdm.context.profile"
+      },
+      "evaluationInfo": {
+        "batch": {
+          "enabled": true
+        },
+        "continuous": {
+          "enabled": false
+        },
+        "synchronous": {
+          "enabled": false
+        }
+      },
+      "mergePolicyId": "{MERGE_POLICY_ID}"
+    },
+
+    "13_loyalty_members": {
+      "name": "Loyalty Program Members",
+      "description": "Active loyalty program members with tier gold or platinum",
+      "expression": {
+        "type": "PQL",
+        "format": "pql/text",
+        "value": "loyalty.tier in [\"gold\", \"platinum\"] and loyalty.points > 0"
+      },
+      "schema": {
+        "name": "_xdm.context.profile"
+      },
+      "evaluationInfo": {
+        "batch": {
+          "enabled": true
+        },
+        "continuous": {
+          "enabled": true
+        },
+        "synchronous": {
+          "enabled": false
+        }
+      },
+      "mergePolicyId": "{MERGE_POLICY_ID}"
+    },
+
+    "14_new_customers": {
+      "name": "New Customers (First Purchase < 30 Days)",
+      "description": "Customers who made their first purchase within 30 days",
+      "expression": {
+        "type": "PQL",
+        "format": "pql/text",
+        "value": "workingSet().xEvent[eventType = \"commerce.purchases\"].count() = 1 and workingSet().xEvent[eventType = \"commerce.purchases\" and timestamp occurs < 30 days before now].exists()"
+      },
+      "schema": {
+        "name": "_xdm.context.profile"
+      },
+      "evaluationInfo": {
+        "batch": {
+          "enabled": true
+        },
+        "continuous": {
+          "enabled": false
+        },
+        "synchronous": {
+          "enabled": false
+        }
+      },
+      "mergePolicyId": "{MERGE_POLICY_ID}"
+    },
+
+    "15_multi_channel_users": {
+      "name": "Multi-Channel Customers",
+      "description": "Users active on both web and mobile in last 30 days",
+      "expression": {
+        "type": "PQL",
+        "format": "pql/text",
+        "value": "workingSet().xEvent[environment.type = \"browser\" and timestamp occurs < 30 days before now].exists() and workingSet().xEvent[environment.type = \"application\" and timestamp occurs < 30 days before now].exists()"
+      },
+      "schema": {
+        "name": "_xdm.context.profile"
+      },
+      "evaluationInfo": {
+        "batch": {
+          "enabled": true
+        },
+        "continuous": {
+          "enabled": false
+        },
+        "synchronous": {
+          "enabled": false
+        }
+      },
+      "mergePolicyId": "{MERGE_POLICY_ID}"
+    }
+  },
+
+  "evaluation_types": {
+    "_description": "Segment evaluation methods - choose based on use case",
+    "batch": {
+      "description": "Scheduled evaluation (typically daily)",
+      "use_case": "Large segments, complex logic, historical analysis",
+      "latency": "Hours to days"
+    },
+    "streaming": {
+      "description": "Real-time evaluation as data arrives",
+      "use_case": "Time-sensitive activation, personalization",
+      "latency": "Seconds",
+      "note": "Set continuous.enabled = true"
+    },
+    "edge": {
+      "description": "Client-side evaluation at edge network",
+      "use_case": "Same-page personalization, ultra-low latency",
+      "latency": "Milliseconds",
+      "note": "Set synchronous.enabled = true (limited PQL support)"
+    }
+  },
+
+  "pql_reference": {
+    "_description": "Common PQL expressions for segment definitions",
+
+    "temporal_operators": {
+      "recent_activity": "timestamp occurs < 7 days before now",
+      "date_range": "timestamp occurs between (today - 30 days) and today",
+      "before_date": "timestamp occurs before \"2024-01-01T00:00:00Z\"",
+      "after_date": "timestamp occurs after \"2024-01-01T00:00:00Z\""
+    },
+
+    "existence_checks": {
+      "field_exists": "personalEmail.address.isNotNull()",
+      "field_not_exists": "personalEmail.address.isNull()",
+      "event_exists": "workingSet().xEvent[eventType = \"commerce.purchases\"].exists()",
+      "event_not_exists": "not(workingSet().xEvent[eventType = \"commerce.purchases\"].exists())"
+    },
+
+    "comparisons": {
+      "equals": "person.gender = \"female\"",
+      "not_equals": "person.gender != \"male\"",
+      "greater_than": "_{TENANT_ID}.score > 100",
+      "less_than": "_{TENANT_ID}.score < 50",
+      "in_list": "homeAddress.stateProvince in [\"CA\", \"NY\", \"TX\"]",
+      "not_in_list": "homeAddress.stateProvince not in [\"AK\", \"HI\"]"
+    },
+
+    "string_operations": {
+      "contains": "personalEmail.address like \"%@gmail.com\"",
+      "starts_with": "person.name.firstName like \"John%\"",
+      "ends_with": "personalEmail.address like \"%@company.com\"",
+      "case_insensitive": "person.name.firstName.lowercase() = \"john\""
+    },
+
+    "aggregations": {
+      "count_events": "workingSet().xEvent[eventType = \"commerce.purchases\"].count() > 5",
+      "sum_values": "workingSet().xEvent[eventType = \"commerce.purchases\"].sum(commerce.order.priceTotal) > 1000",
+      "average": "workingSet().xEvent[eventType = \"commerce.purchases\"].average(commerce.order.priceTotal) > 100"
+    },
+
+    "logical_operators": {
+      "and": "condition1 and condition2",
+      "or": "condition1 or condition2",
+      "not": "not(condition)",
+      "complex": "(condition1 and condition2) or (condition3 and not(condition4))"
+    },
+
+    "array_operations": {
+      "array_contains": "productListItems.exists(SKU = \"PROD123\")",
+      "nested_array": "productListItems.exists(productCategories.exists(categoryName = \"Electronics\"))",
+      "array_count": "productListItems.count() > 3"
+    }
+  },
+
+  "usage_examples": {
+    "example_1_basic_api_call": {
+      "description": "Create a basic profile segment via API",
+      "curl_command": "curl -X POST 'https://platform.adobe.io/data/core/ups/segment/definitions' \\\n  -H 'Authorization: Bearer {ACCESS_TOKEN}' \\\n  -H 'x-api-key: {CLIENT_ID}' \\\n  -H 'x-gw-ims-org-id: {ORG_ID}' \\\n  -H 'x-sandbox-name: {SANDBOX_NAME}' \\\n  -H 'Content-Type: application/json' \\\n  -d @segment_definition.json"
+    },
+
+    "example_2_python_usage": {
+      "description": "Use template with Python API client",
+      "code": "import json\nfrom api_client import AEPAPIClient\n\n# Load template\nwith open('segment_definition_template.json') as f:\n    templates = json.load(f)\n\n# Select and customize template\nsegment = templates['templates']['5_recent_purchasers']\nsegment['name'] = 'My Recent Purchasers'\nsegment['mergePolicyId'] = 'your-merge-policy-id'\n\n# Create segment via API\nclient = AEPAPIClient('config.json')\nresponse = client.create_segment(segment)"
+    },
+
+    "example_3_get_merge_policy": {
+      "description": "Get default merge policy ID",
+      "curl_command": "curl -X GET 'https://platform.adobe.io/data/core/ups/config/mergePolicies?property=isActiveOnEdge==true' \\\n  -H 'Authorization: Bearer {ACCESS_TOKEN}' \\\n  -H 'x-api-key: {CLIENT_ID}' \\\n  -H 'x-gw-ims-org-id: {ORG_ID}' \\\n  -H 'x-sandbox-name: {SANDBOX_NAME}'"
+    }
+  },
+
+  "validation_tips": {
+    "1": "Always validate PQL syntax before creating segment",
+    "2": "Use batch evaluation first, then enable streaming if needed",
+    "3": "Test with small date ranges before expanding",
+    "4": "Verify merge policy exists and is active",
+    "5": "Check that referenced fields exist in schema",
+    "6": "Use descriptive names and descriptions for segment management",
+    "7": "Consider data latency when using time-based conditions"
+  },
+
+  "common_errors": {
+    "invalid_pql": "Check PQL syntax - use PQL validator in UI first",
+    "merge_policy_not_found": "Verify mergePolicyId exists and is for correct schema class",
+    "field_not_found": "Ensure field paths match schema definition exactly (case-sensitive)",
+    "evaluation_error": "Check that evaluation type is compatible with PQL complexity",
+    "timeout": "Simplify PQL or use batch evaluation for complex segments"
+  }
+}

@@ -1,0 +1,26 @@
+# Adobe Experience Platform API Client Dependencies
+
+# HTTP requests
+requests>=2.31.0
+
+# JWT authentication (for legacy JWT auth)
+PyJWT>=2.8.0
+cryptography>=41.0.0
+
+# JSON handling (built-in, but explicit for clarity)
+# json - part of Python standard library
+
+# Date/time handling (built-in)
+# datetime - part of Python standard library
+
+# Command-line argument parsing (built-in)
+# argparse - part of Python standard library
+
+# Optional: For better CLI experience
+colorama>=0.4.6  # Colored terminal output
+
+# Optional: For configuration management
+python-dotenv>=1.0.0  # Load environment variables from .env file
+
+# Optional: For enhanced logging
+python-json-logger>=2.0.7  # JSON formatted logs

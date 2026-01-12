@@ -1,0 +1,11 @@
+product_id,name,category,price,stock_quantity,description,brand
+PROD001,Wireless Headphones,Electronics,199.99,50,High-quality wireless headphones with noise cancellation,Sony
+PROD002,Smartphone,Electronics,899.99,30,Latest smartphone with advanced camera features,Apple
+PROD003,Coffee Maker,Appliances,79.99,20,Programmable coffee maker with thermal carafe,Breville
+PROD004,Yoga Mat,Sports,29.99,100,Non-slip yoga mat for all fitness levels,Gaiam
+PROD005,Novel,Books,14.99,200,Bestselling fiction novel,Random House
+PROD006,Laptop,Electronics,1299.99,15,Powerful laptop for work and gaming,Dell
+PROD007,Running Shoes,Sports,129.99,75,Comfortable running shoes with cushioning,Nike
+PROD008,Blender,Appliances,49.99,40,High-speed blender for smoothies,Oster
+PROD009,Board Game,Games,24.99,60,Fun family board game,Hasbro
+PROD010,Candle,Home,12.99,150,Scented soy candle,Yankee Candle

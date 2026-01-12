@@ -1,0 +1,43 @@
+# API Keys and Secrets
+.env
+*.key
+*.pem
+secrets.json
+config.json
+
+# Postman
+postman-env.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Node modules (if applicable)
+node_modules/
+
+# Build artifacts
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+estore_order*.csv

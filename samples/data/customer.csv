@@ -1,0 +1,11 @@
+customer_id,first_name,last_name,email,phone,city,country,loyalty_points,join_date,membership_status
+CUST001,John,Doe,john.doe@example.com,+1234567890,New York,USA,1250,2022-01-15,Premium
+CUST002,Jane,Smith,jane.smith@example.com,+1234567891,Los Angeles,USA,850,2022-03-20,Standard
+CUST003,Bob,Johnson,bob.johnson@example.com,+1234567892,Chicago,USA,2100,2021-11-10,Premium
+CUST004,Alice,Brown,alice.brown@example.com,+1234567893,San Francisco,USA,550,2022-05-05,Standard
+CUST005,Charlie,Wilson,charlie.wilson@example.com,+1234567894,Miami,USA,1750,2021-09-30,Premium
+CUST006,Eve,Davis,eve.davis@example.com,+1234567895,Seattle,USA,320,2022-07-12,Basic
+CUST007,Frank,Miller,frank.miller@example.com,+1234567896,Boston,USA,980,2021-12-01,Standard
+CUST008,Grace,Lee,grace.lee@example.com,+1234567897,Austin,USA,1450,2022-02-28,Premium
+CUST009,Henry,Garcia,henry.garcia@example.com,+1234567898,Denver,USA,670,2022-04-10,Standard
+CUST010,Ivy,Martinez,ivy.martinez@example.com,+1234567899,Portland,USA,2200,2021-08-15,VIP
