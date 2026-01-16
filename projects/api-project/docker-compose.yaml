@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  # FastAPI 애플리케이션
+  aep-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aep-api-server
+    ports:
+      - "8000:8000"
+    environment:
+      # Adobe Experience Platform 인증 정보
+      # .env 파일에서 자동으로 로드됨
+      - API_KEY=${API_KEY}
+      - CLIENT_SECRET=${CLIENT_SECRET}
+      - ACCESS_TOKEN=${ACCESS_TOKEN}
+      - SCOPES=${SCOPES}
+      - TECHNICAL_ACCOUNT_ID=${TECHNICAL_ACCOUNT_ID}
+      - IMS=${IMS:-https://ims-na1.adobelogin.com}
+      - IMS_ORG=${IMS_ORG}
+      - SANDBOX_NAME=${SANDBOX_NAME:-prod}
+      - TENANT_ID=${TENANT_ID}
+      - CONTAINER_ID=${CONTAINER_ID:-global}
+      - CLIENT_ID=${CLIENT_ID}
+      - GLOBAL_COMPANY_ID=${GLOBAL_COMPANY_ID}
+      - PLATFORM_GATEWAY=${PLATFORM_GATEWAY:-https://platform.adobe.io}
+      - IMS_ENDPOINT=${IMS_ENDPOINT:-https://ims-na1.adobelogin.com}
+    volumes:
+      # 개발 모드: 코드 변경 시 자동 재시작
+      - ./:/app
+      # Python 캐시 제외
+      - /app/__pycache__
+      - /app/.pytest_cache
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    restart: unless-stopped
+    networks:
+      - aep-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Redis (선택사항 - API 응답 캐싱용)
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: aep-redis
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redis-data:/data
+  #   restart: unless-stopped
+  #   networks:
+  #     - aep-network
+
+networks:
+  aep-network:
+    driver: bridge
+
+# volumes:
+#   redis-data:

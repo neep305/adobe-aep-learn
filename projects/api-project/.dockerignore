@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.pyc
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Docker
+Dockerfile
+docker-compose*.yaml
+.dockerignore
+
+# 환경 변수 (빌드 시 제외, 런타임에 주입)
+.env
+.env.local
+.env.*.local
+
+# 인증 정보
+*.key
+*.pem
+*.p12
+private.key
+
+# 테스트 및 커버리지
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+.hypothesis/
+
+# 로그
+*.log
+logs/
+
+# 문서
+README.md
+*.md
+docs/
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+
+# 빌드 아티팩트
+build/
+dist/
+*.egg-info/

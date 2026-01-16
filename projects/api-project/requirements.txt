@@ -1,0 +1,26 @@
+# FastAPI 프레임워크
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+
+# HTTP 클라이언트 (비동기)
+httpx==0.26.0
+
+# 데이터 검증 및 설정 관리
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# 환경 변수 관리
+python-dotenv==1.0.0
+
+# JWT 토큰 처리 (Adobe IMS 인증용)
+pyjwt==2.8.0
+cryptography==42.0.0
+
+# 날짜 처리
+python-dateutil==2.8.2
+
+# 개발 도구
+pytest==7.4.4
+pytest-asyncio==0.23.3
+black==24.1.1
+flake8==7.0.0
