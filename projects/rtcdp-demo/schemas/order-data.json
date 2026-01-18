@@ -1,0 +1,388 @@
+[
+  {
+    "_id": "commerce-ORD001",
+    "timestamp": "2023-10-01T00:00:00Z",
+    "eventType": "commerce.purchases",
+    "identityMap": {
+      "CustomerID": [
+        {
+          "id": "CUST001",
+          "primary": true,
+          "authenticatedState": "authenticated"
+        }
+      ]
+    },
+    "commerce": {
+      "order": {
+        "purchaseID": "ORD001",
+        "priceTotal": 299.98,
+        "currencyCode": "USD"
+      },
+      "purchases": {
+        "value": 1
+      }
+    },
+    "productListItems": [
+      {
+        "SKU": "PROD001",
+        "quantity": 1,
+        "priceTotal": 199.99,
+        "currencyCode": "USD"
+      },
+      {
+        "SKU": "PROD004",
+        "quantity": 1,
+        "priceTotal": 29.99,
+        "currencyCode": "USD"
+      }
+    ],
+    "_rtcdpDemo": {
+      "orderId": "ORD001",
+      "orderStatus": "Completed",
+      "paymentMethod": "Credit Card",
+      "shippingAddress": "New York"
+    }
+  },
+  {
+    "_id": "commerce-ORD002",
+    "timestamp": "2023-10-02T00:00:00Z",
+    "eventType": "commerce.purchases",
+    "identityMap": {
+      "CustomerID": [
+        {
+          "id": "CUST002",
+          "primary": true,
+          "authenticatedState": "authenticated"
+        }
+      ]
+    },
+    "commerce": {
+      "order": {
+        "purchaseID": "ORD002",
+        "priceTotal": 79.99,
+        "currencyCode": "USD"
+      },
+      "purchases": {
+        "value": 1
+      }
+    },
+    "productListItems": [
+      {
+        "SKU": "PROD003",
+        "quantity": 1,
+        "priceTotal": 79.99,
+        "currencyCode": "USD"
+      }
+    ],
+    "_rtcdpDemo": {
+      "orderId": "ORD002",
+      "orderStatus": "Shipped",
+      "paymentMethod": "PayPal",
+      "shippingAddress": "Los Angeles"
+    }
+  },
+  {
+    "_id": "commerce-ORD003",
+    "timestamp": "2023-10-03T00:00:00Z",
+    "eventType": "commerce.purchases",
+    "identityMap": {
+      "CustomerID": [
+        {
+          "id": "CUST003",
+          "primary": true,
+          "authenticatedState": "authenticated"
+        }
+      ]
+    },
+    "commerce": {
+      "order": {
+        "purchaseID": "ORD003",
+        "priceTotal": 129.99,
+        "currencyCode": "USD"
+      },
+      "purchases": {
+        "value": 1
+      }
+    },
+    "productListItems": [
+      {
+        "SKU": "PROD007",
+        "quantity": 1,
+        "priceTotal": 129.99,
+        "currencyCode": "USD"
+      }
+    ],
+    "_rtcdpDemo": {
+      "orderId": "ORD003",
+      "orderStatus": "Processing",
+      "paymentMethod": "Debit Card",
+      "shippingAddress": "Chicago"
+    }
+  },
+  {
+    "_id": "commerce-ORD004",
+    "timestamp": "2023-10-04T00:00:00Z",
+    "eventType": "commerce.purchases",
+    "identityMap": {
+      "CustomerID": [
+        {
+          "id": "CUST004",
+          "primary": true,
+          "authenticatedState": "authenticated"
+        }
+      ]
+    },
+    "commerce": {
+      "order": {
+        "purchaseID": "ORD004",
+        "priceTotal": 199.99,
+        "currencyCode": "USD"
+      },
+      "purchases": {
+        "value": 1
+      }
+    },
+    "productListItems": [
+      {
+        "SKU": "PROD001",
+        "quantity": 1,
+        "priceTotal": 199.99,
+        "currencyCode": "USD"
+      }
+    ],
+    "_rtcdpDemo": {
+      "orderId": "ORD004",
+      "orderStatus": "Completed",
+      "paymentMethod": "Credit Card",
+      "shippingAddress": "San Francisco"
+    }
+  },
+  {
+    "_id": "commerce-ORD005",
+    "timestamp": "2023-10-05T00:00:00Z",
+    "eventType": "commerce.purchases",
+    "identityMap": {
+      "CustomerID": [
+        {
+          "id": "CUST005",
+          "primary": true,
+          "authenticatedState": "authenticated"
+        }
+      ]
+    },
+    "commerce": {
+      "order": {
+        "purchaseID": "ORD005",
+        "priceTotal": 49.99,
+        "currencyCode": "USD"
+      },
+      "purchases": {
+        "value": 1
+      }
+    },
+    "productListItems": [
+      {
+        "SKU": "PROD008",
+        "quantity": 1,
+        "priceTotal": 49.99,
+        "currencyCode": "USD"
+      }
+    ],
+    "_rtcdpDemo": {
+      "orderId": "ORD005",
+      "orderStatus": "Delivered",
+      "paymentMethod": "PayPal",
+      "shippingAddress": "Miami"
+    }
+  },
+  {
+    "_id": "commerce-ORD006",
+    "timestamp": "2023-10-06T00:00:00Z",
+    "eventType": "commerce.purchases",
+    "identityMap": {
+      "CustomerID": [
+        {
+          "id": "CUST006",
+          "primary": true,
+          "authenticatedState": "authenticated"
+        }
+      ]
+    },
+    "commerce": {
+      "order": {
+        "purchaseID": "ORD006",
+        "priceTotal": 1299.99,
+        "currencyCode": "USD"
+      },
+      "purchases": {
+        "value": 1
+      }
+    },
+    "productListItems": [
+      {
+        "SKU": "PROD006",
+        "quantity": 1,
+        "priceTotal": 1299.99,
+        "currencyCode": "USD"
+      }
+    ],
+    "_rtcdpDemo": {
+      "orderId": "ORD006",
+      "orderStatus": "Shipped",
+      "paymentMethod": "Credit Card",
+      "shippingAddress": "Seattle"
+    }
+  },
+  {
+    "_id": "commerce-ORD007",
+    "timestamp": "2023-10-07T00:00:00Z",
+    "eventType": "commerce.purchases",
+    "identityMap": {
+      "CustomerID": [
+        {
+          "id": "CUST007",
+          "primary": true,
+          "authenticatedState": "authenticated"
+        }
+      ]
+    },
+    "commerce": {
+      "order": {
+        "purchaseID": "ORD007",
+        "priceTotal": 29.99,
+        "currencyCode": "USD"
+      },
+      "purchases": {
+        "value": 1
+      }
+    },
+    "productListItems": [
+      {
+        "SKU": "PROD004",
+        "quantity": 1,
+        "priceTotal": 29.99,
+        "currencyCode": "USD"
+      }
+    ],
+    "_rtcdpDemo": {
+      "orderId": "ORD007",
+      "orderStatus": "Completed",
+      "paymentMethod": "Debit Card",
+      "shippingAddress": "Boston"
+    }
+  },
+  {
+    "_id": "commerce-ORD008",
+    "timestamp": "2023-10-08T00:00:00Z",
+    "eventType": "commerce.purchases",
+    "identityMap": {
+      "CustomerID": [
+        {
+          "id": "CUST008",
+          "primary": true,
+          "authenticatedState": "authenticated"
+        }
+      ]
+    },
+    "commerce": {
+      "order": {
+        "purchaseID": "ORD008",
+        "priceTotal": 24.99,
+        "currencyCode": "USD"
+      },
+      "purchases": {
+        "value": 1
+      }
+    },
+    "productListItems": [
+      {
+        "SKU": "PROD009",
+        "quantity": 1,
+        "priceTotal": 24.99,
+        "currencyCode": "USD"
+      }
+    ],
+    "_rtcdpDemo": {
+      "orderId": "ORD008",
+      "orderStatus": "Processing",
+      "paymentMethod": "PayPal",
+      "shippingAddress": "Austin"
+    }
+  },
+  {
+    "_id": "commerce-ORD009",
+    "timestamp": "2023-10-09T00:00:00Z",
+    "eventType": "commerce.purchases",
+    "identityMap": {
+      "CustomerID": [
+        {
+          "id": "CUST009",
+          "primary": true,
+          "authenticatedState": "authenticated"
+        }
+      ]
+    },
+    "commerce": {
+      "order": {
+        "purchaseID": "ORD009",
+        "priceTotal": 12.99,
+        "currencyCode": "USD"
+      },
+      "purchases": {
+        "value": 1
+      }
+    },
+    "productListItems": [
+      {
+        "SKU": "PROD010",
+        "quantity": 1,
+        "priceTotal": 12.99,
+        "currencyCode": "USD"
+      }
+    ],
+    "_rtcdpDemo": {
+      "orderId": "ORD009",
+      "orderStatus": "Delivered",
+      "paymentMethod": "Credit Card",
+      "shippingAddress": "Denver"
+    }
+  },
+  {
+    "_id": "commerce-ORD010",
+    "timestamp": "2023-10-10T00:00:00Z",
+    "eventType": "commerce.purchases",
+    "identityMap": {
+      "CustomerID": [
+        {
+          "id": "CUST010",
+          "primary": true,
+          "authenticatedState": "authenticated"
+        }
+      ]
+    },
+    "commerce": {
+      "order": {
+        "purchaseID": "ORD010",
+        "priceTotal": 899.99,
+        "currencyCode": "USD"
+      },
+      "purchases": {
+        "value": 1
+      }
+    },
+    "productListItems": [
+      {
+        "SKU": "PROD002",
+        "quantity": 1,
+        "priceTotal": 899.99,
+        "currencyCode": "USD"
+      }
+    ],
+    "_rtcdpDemo": {
+      "orderId": "ORD010",
+      "orderStatus": "Completed",
+      "paymentMethod": "PayPal",
+      "shippingAddress": "Portland"
+    }
+  }
+]

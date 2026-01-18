@@ -1,0 +1,286 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RTCDP Demo - Web Event",
+  "description": "웹 행동 이벤트 스키마 - sample-web-events.csv 및 Web SDK 데이터 매핑용",
+  "type": "object",
+  "meta:class": "https://ns.adobe.com/xdm/context/experienceevent",
+  "meta:extensible": true,
+  "meta:abstract": false,
+  "meta:extends": [
+    "https://ns.adobe.com/xdm/context/experienceevent",
+    "https://ns.adobe.com/xdm/context/experienceevent-web",
+    "https://ns.adobe.com/xdm/context/experienceevent-environment-details"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://ns.adobe.com/xdm/context/experienceevent"
+    },
+    {
+      "$ref": "https://ns.adobe.com/xdm/context/experienceevent-web"
+    },
+    {
+      "$ref": "https://ns.adobe.com/xdm/context/experienceevent-environment-details"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "title": "Event ID",
+          "description": "이벤트 고유 식별자"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Timestamp",
+          "description": "이벤트 발생 시간 (ISO 8601)"
+        },
+        "eventType": {
+          "type": "string",
+          "title": "Event Type",
+          "description": "이벤트 유형",
+          "enum": [
+            "web.webpagedetails.pageViews",
+            "web.webinteraction.linkClicks",
+            "commerce.productViews",
+            "commerce.productListAdds",
+            "commerce.purchases"
+          ]
+        },
+        "identityMap": {
+          "type": "object",
+          "title": "Identity Map",
+          "description": "고객 식별자 맵",
+          "properties": {
+            "ECID": {
+              "type": "array",
+              "description": "Experience Cloud ID (쿠키 기반)",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "ECID 값"
+                  },
+                  "primary": {
+                    "type": "boolean",
+                    "default": true
+                  },
+                  "authenticatedState": {
+                    "type": "string",
+                    "enum": ["authenticated", "loggedOut", "ambiguous"],
+                    "default": "ambiguous"
+                  }
+                },
+                "required": ["id"]
+              }
+            },
+            "Email": {
+              "type": "array",
+              "description": "이메일 (로그인 시)",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "이메일 주소"
+                  },
+                  "primary": {
+                    "type": "boolean",
+                    "default": false
+                  },
+                  "authenticatedState": {
+                    "type": "string",
+                    "enum": ["authenticated", "loggedOut", "ambiguous"],
+                    "default": "authenticated"
+                  }
+                },
+                "required": ["id"]
+              }
+            },
+            "CustomerID": {
+              "type": "array",
+              "description": "CRM 고객 ID (로그인 시)",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "고객 ID"
+                  },
+                  "primary": {
+                    "type": "boolean",
+                    "default": false
+                  },
+                  "authenticatedState": {
+                    "type": "string",
+                    "enum": ["authenticated", "loggedOut", "ambiguous"],
+                    "default": "authenticated"
+                  }
+                },
+                "required": ["id"]
+              }
+            }
+          }
+        },
+        "web": {
+          "type": "object",
+          "title": "Web",
+          "description": "웹 관련 필드",
+          "properties": {
+            "webPageDetails": {
+              "type": "object",
+              "properties": {
+                "URL": {
+                  "type": "string",
+                  "format": "uri",
+                  "title": "Page URL",
+                  "description": "페이지 URL"
+                },
+                "name": {
+                  "type": "string",
+                  "title": "Page Name",
+                  "description": "페이지 이름"
+                },
+                "pageViews": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "integer",
+                      "default": 1
+                    }
+                  }
+                }
+              }
+            },
+            "webReferrer": {
+              "type": "object",
+              "properties": {
+                "URL": {
+                  "type": "string",
+                  "format": "uri",
+                  "title": "Referrer URL",
+                  "description": "리퍼러 URL"
+                }
+              }
+            },
+            "webInteraction": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "title": "Interaction Name",
+                  "description": "상호작용 이름"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": ["download", "exit", "other"],
+                  "title": "Interaction Type"
+                },
+                "URL": {
+                  "type": "string",
+                  "format": "uri",
+                  "title": "Interaction URL"
+                }
+              }
+            }
+          }
+        },
+        "environment": {
+          "type": "object",
+          "title": "Environment",
+          "description": "환경 정보",
+          "properties": {
+            "browserDetails": {
+              "type": "object",
+              "properties": {
+                "userAgent": {
+                  "type": "string",
+                  "title": "User Agent",
+                  "description": "브라우저 User Agent"
+                },
+                "viewportWidth": {
+                  "type": "integer",
+                  "title": "Viewport Width",
+                  "description": "뷰포트 너비"
+                },
+                "viewportHeight": {
+                  "type": "integer",
+                  "title": "Viewport Height",
+                  "description": "뷰포트 높이"
+                }
+              }
+            },
+            "ipV4": {
+              "type": "string",
+              "title": "IP Address",
+              "description": "IPv4 주소"
+            }
+          }
+        },
+        "device": {
+          "type": "object",
+          "title": "Device",
+          "description": "디바이스 정보",
+          "properties": {
+            "type": {
+              "type": "string",
+              "title": "Device Type",
+              "description": "디바이스 유형",
+              "enum": ["Desktop", "Mobile", "Tablet"],
+              "meta:enum": {
+                "Desktop": "데스크탑",
+                "Mobile": "모바일",
+                "Tablet": "태블릿"
+              }
+            },
+            "model": {
+              "type": "string",
+              "title": "Device Model",
+              "description": "디바이스 모델"
+            },
+            "manufacturer": {
+              "type": "string",
+              "title": "Manufacturer",
+              "description": "제조사"
+            }
+          }
+        },
+        "_acssandboxgdctwo": {
+          "type": "object",
+          "title": "RTCDP Demo Web Event Attributes",
+          "description": "RTCDP 데모용 웹 이벤트 커스텀 필드",
+          "properties": {
+            "eventId": {
+              "type": "string",
+              "title": "Event ID",
+              "description": "내부 이벤트 ID"
+            },
+            "eventType": {
+              "type": "string",
+              "title": "Event Type",
+              "description": "이벤트 유형 (간소화)",
+              "enum": ["page_view", "add_to_cart", "purchase", "product_view", "search"],
+              "meta:enum": {
+                "page_view": "페이지 조회",
+                "add_to_cart": "장바구니 추가",
+                "purchase": "구매",
+                "product_view": "상품 조회",
+                "search": "검색"
+              }
+            },
+            "sessionId": {
+              "type": "string",
+              "title": "Session ID",
+              "description": "세션 ID"
+            }
+          }
+        }
+      },
+      "required": ["timestamp", "eventType"]
+    }
+  ],
+  "meta:status": "stable",
+  "meta:createdDate": "2024-01-01",
+  "meta:tenantNamespace": "_acssandboxgdctwo"
+}

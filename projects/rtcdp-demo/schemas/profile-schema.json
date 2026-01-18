@@ -1,0 +1,152 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RTCDP Demo - Customer Profile",
+  "description": "고객 프로필 스키마 - customer.csv 데이터 매핑용",
+  "type": "object",
+  "meta:class": "https://ns.adobe.com/xdm/context/profile",
+  "meta:extensible": true,
+  "meta:abstract": false,
+  "meta:extends": [
+    "https://ns.adobe.com/xdm/context/profile",
+    "https://ns.adobe.com/xdm/context/profile-person-details",
+    "https://ns.adobe.com/xdm/context/profile-personal-details"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://ns.adobe.com/xdm/context/profile"
+    },
+    {
+      "$ref": "https://ns.adobe.com/xdm/context/profile-person-details"
+    },
+    {
+      "$ref": "https://ns.adobe.com/xdm/context/profile-personal-details"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "person": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "type": "string",
+                  "title": "First Name",
+                  "description": "고객 이름"
+                },
+                "lastName": {
+                  "type": "string",
+                  "title": "Last Name",
+                  "description": "고객 성"
+                }
+              }
+            }
+          }
+        },
+        "personalEmail": {
+          "type": "object",
+          "properties": {
+            "address": {
+              "type": "string",
+              "format": "email",
+              "title": "Email Address",
+              "description": "고객 이메일 주소",
+              "meta:xdm": {
+                "identities": [
+                  {
+                    "namespace": "Email",
+                    "primary": false
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "mobilePhone": {
+          "type": "object",
+          "properties": {
+            "number": {
+              "type": "string",
+              "title": "Phone Number",
+              "description": "휴대전화 번호",
+              "meta:xdm": {
+                "identities": [
+                  {
+                    "namespace": "Phone",
+                    "primary": false
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "_acssandboxgdctwo": {
+          "type": "object",
+          "title": "RTCDP Demo Custom Fields",
+          "description": "RTCDP 데모용 커스텀 필드 그룹",
+          "properties": {
+            "customerId": {
+              "type": "string",
+              "title": "Customer ID",
+              "description": "CRM 고객 고유 ID (Primary Identity)",
+              "meta:xdm": {
+                "identities": [
+                  {
+                    "namespace": "CustomerID",
+                    "primary": true
+                  }
+                ]
+              }
+            },
+            "loyaltyPoints": {
+              "type": "integer",
+              "title": "Loyalty Points",
+              "description": "적립 포인트",
+              "minimum": 0
+            },
+            "membershipStatus": {
+              "type": "string",
+              "title": "Membership Status",
+              "description": "멤버십 등급",
+              "enum": ["Basic", "Standard", "Premium", "VIP"],
+              "meta:enum": {
+                "Basic": "기본 회원",
+                "Standard": "스탠다드 회원",
+                "Premium": "프리미엄 회원",
+                "VIP": "VIP 회원"
+              }
+            },
+            "joinDate": {
+              "type": "string",
+              "format": "date-time",
+              "title": "Join Date",
+              "description": "가입일"
+            },
+            "address": {
+              "type": "object",
+              "title": "Address",
+              "description": "주소 정보",
+              "properties": {
+                "city": {
+                  "type": "string",
+                  "title": "City",
+                  "description": "도시"
+                },
+                "country": {
+                  "type": "string",
+                  "title": "Country",
+                  "description": "국가"
+                }
+              }
+            }
+          },
+          "required": ["customerId"]
+        }
+      }
+    }
+  ],
+  "meta:status": "stable",
+  "meta:createdDate": "2024-01-01",
+  "meta:tenantNamespace": "_acssandboxgdctwo"
+}

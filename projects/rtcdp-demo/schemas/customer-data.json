@@ -1,0 +1,242 @@
+[
+  {
+    "person": {
+      "name": {
+        "firstName": "John",
+        "lastName": "Doe"
+      }
+    },
+    "personalEmail": {
+      "address": "john.doe@example.com"
+    },
+    "mobilePhone": {
+      "number": "+1234567890"
+    },
+    "_rtcdpDemo": {
+      "customerId": "CUST001",
+      "loyaltyPoints": 1250,
+      "membershipStatus": "Premium",
+      "joinDate": "2022-01-15T00:00:00Z",
+      "address": {
+        "city": "New York",
+        "country": "USA"
+      }
+    }
+  },
+  {
+    "person": {
+      "name": {
+        "firstName": "Jane",
+        "lastName": "Smith"
+      }
+    },
+    "personalEmail": {
+      "address": "jane.smith@example.com"
+    },
+    "mobilePhone": {
+      "number": "+1234567891"
+    },
+    "_rtcdpDemo": {
+      "customerId": "CUST002",
+      "loyaltyPoints": 850,
+      "membershipStatus": "Standard",
+      "joinDate": "2022-03-20T00:00:00Z",
+      "address": {
+        "city": "Los Angeles",
+        "country": "USA"
+      }
+    }
+  },
+  {
+    "person": {
+      "name": {
+        "firstName": "Bob",
+        "lastName": "Johnson"
+      }
+    },
+    "personalEmail": {
+      "address": "bob.johnson@example.com"
+    },
+    "mobilePhone": {
+      "number": "+1234567892"
+    },
+    "_rtcdpDemo": {
+      "customerId": "CUST003",
+      "loyaltyPoints": 2100,
+      "membershipStatus": "Premium",
+      "joinDate": "2021-11-10T00:00:00Z",
+      "address": {
+        "city": "Chicago",
+        "country": "USA"
+      }
+    }
+  },
+  {
+    "person": {
+      "name": {
+        "firstName": "Alice",
+        "lastName": "Brown"
+      }
+    },
+    "personalEmail": {
+      "address": "alice.brown@example.com"
+    },
+    "mobilePhone": {
+      "number": "+1234567893"
+    },
+    "_rtcdpDemo": {
+      "customerId": "CUST004",
+      "loyaltyPoints": 550,
+      "membershipStatus": "Standard",
+      "joinDate": "2022-05-05T00:00:00Z",
+      "address": {
+        "city": "San Francisco",
+        "country": "USA"
+      }
+    }
+  },
+  {
+    "person": {
+      "name": {
+        "firstName": "Charlie",
+        "lastName": "Wilson"
+      }
+    },
+    "personalEmail": {
+      "address": "charlie.wilson@example.com"
+    },
+    "mobilePhone": {
+      "number": "+1234567894"
+    },
+    "_rtcdpDemo": {
+      "customerId": "CUST005",
+      "loyaltyPoints": 1750,
+      "membershipStatus": "Premium",
+      "joinDate": "2021-09-30T00:00:00Z",
+      "address": {
+        "city": "Miami",
+        "country": "USA"
+      }
+    }
+  },
+  {
+    "person": {
+      "name": {
+        "firstName": "Eve",
+        "lastName": "Davis"
+      }
+    },
+    "personalEmail": {
+      "address": "eve.davis@example.com"
+    },
+    "mobilePhone": {
+      "number": "+1234567895"
+    },
+    "_rtcdpDemo": {
+      "customerId": "CUST006",
+      "loyaltyPoints": 320,
+      "membershipStatus": "Basic",
+      "joinDate": "2022-07-12T00:00:00Z",
+      "address": {
+        "city": "Seattle",
+        "country": "USA"
+      }
+    }
+  },
+  {
+    "person": {
+      "name": {
+        "firstName": "Frank",
+        "lastName": "Miller"
+      }
+    },
+    "personalEmail": {
+      "address": "frank.miller@example.com"
+    },
+    "mobilePhone": {
+      "number": "+1234567896"
+    },
+    "_rtcdpDemo": {
+      "customerId": "CUST007",
+      "loyaltyPoints": 980,
+      "membershipStatus": "Standard",
+      "joinDate": "2021-12-01T00:00:00Z",
+      "address": {
+        "city": "Boston",
+        "country": "USA"
+      }
+    }
+  },
+  {
+    "person": {
+      "name": {
+        "firstName": "Grace",
+        "lastName": "Lee"
+      }
+    },
+    "personalEmail": {
+      "address": "grace.lee@example.com"
+    },
+    "mobilePhone": {
+      "number": "+1234567897"
+    },
+    "_rtcdpDemo": {
+      "customerId": "CUST008",
+      "loyaltyPoints": 1450,
+      "membershipStatus": "Premium",
+      "joinDate": "2022-02-28T00:00:00Z",
+      "address": {
+        "city": "Austin",
+        "country": "USA"
+      }
+    }
+  },
+  {
+    "person": {
+      "name": {
+        "firstName": "Henry",
+        "lastName": "Garcia"
+      }
+    },
+    "personalEmail": {
+      "address": "henry.garcia@example.com"
+    },
+    "mobilePhone": {
+      "number": "+1234567898"
+    },
+    "_rtcdpDemo": {
+      "customerId": "CUST009",
+      "loyaltyPoints": 670,
+      "membershipStatus": "Standard",
+      "joinDate": "2022-04-10T00:00:00Z",
+      "address": {
+        "city": "Denver",
+        "country": "USA"
+      }
+    }
+  },
+  {
+    "person": {
+      "name": {
+        "firstName": "Ivy",
+        "lastName": "Martinez"
+      }
+    },
+    "personalEmail": {
+      "address": "ivy.martinez@example.com"
+    },
+    "mobilePhone": {
+      "number": "+1234567899"
+    },
+    "_rtcdpDemo": {
+      "customerId": "CUST010",
+      "loyaltyPoints": 2200,
+      "membershipStatus": "VIP",
+      "joinDate": "2021-08-15T00:00:00Z",
+      "address": {
+        "city": "Portland",
+        "country": "USA"
+      }
+    }
+  }
+]

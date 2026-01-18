@@ -1,0 +1,377 @@
+[
+  {
+    "_id": "web-evt001",
+    "timestamp": "2023-01-15T10:30:00Z",
+    "eventType": "web.webpagedetails.pageViews",
+    "identityMap": {
+      "ECID": [
+        {
+          "id": "12345",
+          "primary": true,
+          "authenticatedState": "ambiguous"
+        }
+      ]
+    },
+    "web": {
+      "webPageDetails": {
+        "URL": "https://luma.example.com/home",
+        "name": "Luma Home Page",
+        "pageViews": {
+          "value": 1
+        }
+      }
+    },
+    "device": {
+      "type": "Desktop"
+    },
+    "_rtcdpDemo": {
+      "eventId": "evt001",
+      "eventType": "page_view"
+    },
+    "environment": {
+      "browserDetails": {
+        "viewportWidth": 1920,
+        "viewportHeight": 1080
+      }
+    }
+  },
+  {
+    "_id": "web-evt002",
+    "timestamp": "2023-01-15T10:31:15Z",
+    "eventType": "web.webpagedetails.pageViews",
+    "identityMap": {
+      "ECID": [
+        {
+          "id": "12345",
+          "primary": true,
+          "authenticatedState": "ambiguous"
+        }
+      ]
+    },
+    "web": {
+      "webPageDetails": {
+        "URL": "https://luma.example.com/products",
+        "name": "Shoes Collection",
+        "pageViews": {
+          "value": 1
+        }
+      },
+      "webReferrer": {
+        "URL": "https://luma.example.com/home"
+      }
+    },
+    "device": {
+      "type": "Desktop"
+    },
+    "_rtcdpDemo": {
+      "eventId": "evt002",
+      "eventType": "page_view"
+    },
+    "environment": {
+      "browserDetails": {
+        "viewportWidth": 1920,
+        "viewportHeight": 1080
+      }
+    }
+  },
+  {
+    "_id": "web-evt003",
+    "timestamp": "2023-01-15T10:32:45Z",
+    "eventType": "commerce.productListAdds",
+    "identityMap": {
+      "ECID": [
+        {
+          "id": "12345",
+          "primary": true,
+          "authenticatedState": "ambiguous"
+        }
+      ]
+    },
+    "web": {
+      "webPageDetails": {
+        "URL": "https://luma.example.com/products/shoe-123",
+        "name": "Shoe Product Page",
+        "pageViews": {
+          "value": 0
+        }
+      },
+      "webReferrer": {
+        "URL": "https://luma.example.com/products"
+      }
+    },
+    "device": {
+      "type": "Desktop"
+    },
+    "_rtcdpDemo": {
+      "eventId": "evt003",
+      "eventType": "add_to_cart"
+    },
+    "environment": {
+      "browserDetails": {
+        "viewportWidth": 1920,
+        "viewportHeight": 1080
+      }
+    }
+  },
+  {
+    "_id": "web-evt004",
+    "timestamp": "2023-01-15T10:35:00Z",
+    "eventType": "web.webpagedetails.pageViews",
+    "identityMap": {
+      "ECID": [
+        {
+          "id": "12346",
+          "primary": true,
+          "authenticatedState": "ambiguous"
+        }
+      ]
+    },
+    "web": {
+      "webPageDetails": {
+        "URL": "https://luma.example.com/home",
+        "name": "Luma Home Page",
+        "pageViews": {
+          "value": 1
+        }
+      }
+    },
+    "device": {
+      "type": "Mobile"
+    },
+    "_rtcdpDemo": {
+      "eventId": "evt004",
+      "eventType": "page_view"
+    },
+    "environment": {
+      "browserDetails": {
+        "viewportWidth": 375,
+        "viewportHeight": 667
+      }
+    }
+  },
+  {
+    "_id": "web-evt005",
+    "timestamp": "2023-01-15T10:36:20Z",
+    "eventType": "web.webpagedetails.pageViews",
+    "identityMap": {
+      "ECID": [
+        {
+          "id": "12346",
+          "primary": true,
+          "authenticatedState": "ambiguous"
+        }
+      ]
+    },
+    "web": {
+      "webPageDetails": {
+        "URL": "https://luma.example.com/products",
+        "name": "Tops Collection",
+        "pageViews": {
+          "value": 1
+        }
+      },
+      "webReferrer": {
+        "URL": "https://luma.example.com/home"
+      }
+    },
+    "device": {
+      "type": "Mobile"
+    },
+    "_rtcdpDemo": {
+      "eventId": "evt005",
+      "eventType": "page_view"
+    },
+    "environment": {
+      "browserDetails": {
+        "viewportWidth": 375,
+        "viewportHeight": 667
+      }
+    }
+  },
+  {
+    "_id": "web-evt006",
+    "timestamp": "2023-01-15T11:00:00Z",
+    "eventType": "web.webpagedetails.pageViews",
+    "identityMap": {
+      "ECID": [
+        {
+          "id": "12347",
+          "primary": true,
+          "authenticatedState": "ambiguous"
+        }
+      ]
+    },
+    "web": {
+      "webPageDetails": {
+        "URL": "https://luma.example.com/home",
+        "name": "Luma Home Page",
+        "pageViews": {
+          "value": 1
+        }
+      }
+    },
+    "device": {
+      "type": "Desktop"
+    },
+    "_rtcdpDemo": {
+      "eventId": "evt006",
+      "eventType": "page_view"
+    },
+    "environment": {
+      "browserDetails": {
+        "viewportWidth": 1920,
+        "viewportHeight": 1080
+      }
+    }
+  },
+  {
+    "_id": "web-evt007",
+    "timestamp": "2023-01-15T11:01:30Z",
+    "eventType": "commerce.purchases",
+    "identityMap": {
+      "ECID": [
+        {
+          "id": "12347",
+          "primary": true,
+          "authenticatedState": "ambiguous"
+        }
+      ]
+    },
+    "web": {
+      "webPageDetails": {
+        "URL": "https://luma.example.com/checkout",
+        "name": "Checkout Page",
+        "pageViews": {
+          "value": 0
+        }
+      },
+      "webReferrer": {
+        "URL": "https://luma.example.com/cart"
+      }
+    },
+    "device": {
+      "type": "Desktop"
+    },
+    "_rtcdpDemo": {
+      "eventId": "evt007",
+      "eventType": "purchase"
+    },
+    "environment": {
+      "browserDetails": {
+        "viewportWidth": 1920,
+        "viewportHeight": 1080
+      }
+    }
+  },
+  {
+    "_id": "web-evt008",
+    "timestamp": "2023-01-15T14:20:00Z",
+    "eventType": "web.webpagedetails.pageViews",
+    "identityMap": {
+      "ECID": [
+        {
+          "id": "12348",
+          "primary": true,
+          "authenticatedState": "ambiguous"
+        }
+      ]
+    },
+    "web": {
+      "webPageDetails": {
+        "URL": "https://luma.example.com/home",
+        "name": "Luma Home Page",
+        "pageViews": {
+          "value": 1
+        }
+      }
+    },
+    "device": {
+      "type": "Desktop"
+    },
+    "_rtcdpDemo": {
+      "eventId": "evt008",
+      "eventType": "page_view"
+    },
+    "environment": {
+      "browserDetails": {
+        "viewportWidth": 1366,
+        "viewportHeight": 768
+      }
+    }
+  },
+  {
+    "_id": "web-evt009",
+    "timestamp": "2023-01-15T14:21:15Z",
+    "eventType": "web.webpagedetails.pageViews",
+    "identityMap": {
+      "ECID": [
+        {
+          "id": "12348",
+          "primary": true,
+          "authenticatedState": "ambiguous"
+        }
+      ]
+    },
+    "web": {
+      "webPageDetails": {
+        "URL": "https://luma.example.com/about",
+        "name": "About Us",
+        "pageViews": {
+          "value": 1
+        }
+      },
+      "webReferrer": {
+        "URL": "https://luma.example.com/home"
+      }
+    },
+    "device": {
+      "type": "Desktop"
+    },
+    "_rtcdpDemo": {
+      "eventId": "evt009",
+      "eventType": "page_view"
+    },
+    "environment": {
+      "browserDetails": {
+        "viewportWidth": 1366,
+        "viewportHeight": 768
+      }
+    }
+  },
+  {
+    "_id": "web-evt010",
+    "timestamp": "2023-01-15T15:45:00Z",
+    "eventType": "web.webpagedetails.pageViews",
+    "identityMap": {
+      "ECID": [
+        {
+          "id": "12349",
+          "primary": true,
+          "authenticatedState": "ambiguous"
+        }
+      ]
+    },
+    "web": {
+      "webPageDetails": {
+        "URL": "https://luma.example.com/home",
+        "name": "Luma Home Page",
+        "pageViews": {
+          "value": 1
+        }
+      }
+    },
+    "device": {
+      "type": "Desktop"
+    },
+    "_rtcdpDemo": {
+      "eventId": "evt010",
+      "eventType": "page_view"
+    },
+    "environment": {
+      "browserDetails": {
+        "viewportWidth": 1600,
+        "viewportHeight": 900
+      }
+    }
+  }
+]

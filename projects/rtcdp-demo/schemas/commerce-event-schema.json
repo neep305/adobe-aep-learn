@@ -1,0 +1,238 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RTCDP Demo - Commerce Event",
+  "description": "주문/구매 이벤트 스키마 - order.csv, order_item.csv 데이터 매핑용",
+  "type": "object",
+  "meta:class": "https://ns.adobe.com/xdm/context/experienceevent",
+  "meta:extensible": true,
+  "meta:abstract": false,
+  "meta:extends": [
+    "https://ns.adobe.com/xdm/context/experienceevent",
+    "https://ns.adobe.com/xdm/context/experienceevent-commerce",
+    "https://ns.adobe.com/xdm/context/experienceevent-implementation-details"
+  ],
+  "allOf": [
+    {
+      "$ref": "https://ns.adobe.com/xdm/context/experienceevent"
+    },
+    {
+      "$ref": "https://ns.adobe.com/xdm/context/experienceevent-commerce"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string",
+          "title": "Event ID",
+          "description": "이벤트 고유 식별자"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Timestamp",
+          "description": "이벤트 발생 시간 (ISO 8601)"
+        },
+        "eventType": {
+          "type": "string",
+          "title": "Event Type",
+          "description": "이벤트 유형",
+          "enum": [
+            "commerce.purchases",
+            "commerce.productListAdds",
+            "commerce.productListRemovals",
+            "commerce.productViews",
+            "commerce.checkouts"
+          ]
+        },
+        "identityMap": {
+          "type": "object",
+          "title": "Identity Map",
+          "description": "고객 식별자 맵",
+          "properties": {
+            "CustomerID": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "고객 ID 값"
+                  },
+                  "primary": {
+                    "type": "boolean",
+                    "default": true
+                  },
+                  "authenticatedState": {
+                    "type": "string",
+                    "enum": ["authenticated", "loggedOut", "ambiguous"],
+                    "default": "authenticated"
+                  }
+                },
+                "required": ["id"]
+              }
+            },
+            "Email": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "이메일 주소"
+                  },
+                  "primary": {
+                    "type": "boolean",
+                    "default": false
+                  }
+                },
+                "required": ["id"]
+              }
+            }
+          }
+        },
+        "commerce": {
+          "type": "object",
+          "title": "Commerce",
+          "description": "커머스 관련 필드",
+          "properties": {
+            "order": {
+              "type": "object",
+              "properties": {
+                "purchaseID": {
+                  "type": "string",
+                  "title": "Purchase ID",
+                  "description": "주문 고유 ID"
+                },
+                "priceTotal": {
+                  "type": "number",
+                  "title": "Price Total",
+                  "description": "주문 총 금액"
+                },
+                "currencyCode": {
+                  "type": "string",
+                  "title": "Currency Code",
+                  "description": "통화 코드 (ISO 4217)",
+                  "default": "USD"
+                }
+              }
+            },
+            "purchases": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "integer",
+                  "title": "Purchase Count",
+                  "description": "구매 카운터",
+                  "default": 1
+                }
+              }
+            },
+            "productListAdds": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "integer",
+                  "title": "Add to Cart Count",
+                  "description": "장바구니 추가 카운터"
+                }
+              }
+            },
+            "productViews": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "integer",
+                  "title": "Product View Count",
+                  "description": "상품 조회 카운터"
+                }
+              }
+            }
+          }
+        },
+        "productListItems": {
+          "type": "array",
+          "title": "Product List Items",
+          "description": "주문 상품 목록",
+          "items": {
+            "type": "object",
+            "properties": {
+              "SKU": {
+                "type": "string",
+                "title": "SKU",
+                "description": "상품 고유 코드"
+              },
+              "name": {
+                "type": "string",
+                "title": "Product Name",
+                "description": "상품명"
+              },
+              "quantity": {
+                "type": "integer",
+                "title": "Quantity",
+                "description": "수량",
+                "minimum": 1
+              },
+              "priceTotal": {
+                "type": "number",
+                "title": "Price Total",
+                "description": "상품 총 금액"
+              },
+              "currencyCode": {
+                "type": "string",
+                "title": "Currency Code",
+                "default": "USD"
+              }
+            },
+            "required": ["SKU"]
+          }
+        },
+        "_acssandboxgdctwo": {
+          "type": "object",
+          "title": "RTCDP Demo Order Attributes",
+          "description": "RTCDP 데모용 주문 커스텀 필드",
+          "properties": {
+            "orderId": {
+              "type": "string",
+              "title": "Order ID",
+              "description": "내부 주문 ID"
+            },
+            "orderStatus": {
+              "type": "string",
+              "title": "Order Status",
+              "description": "주문 상태",
+              "enum": ["Processing", "Shipped", "Delivered", "Completed", "Cancelled"],
+              "meta:enum": {
+                "Processing": "처리중",
+                "Shipped": "배송중",
+                "Delivered": "배송완료",
+                "Completed": "완료",
+                "Cancelled": "취소"
+              }
+            },
+            "paymentMethod": {
+              "type": "string",
+              "title": "Payment Method",
+              "description": "결제 수단",
+              "enum": ["Credit Card", "PayPal", "Debit Card", "Bank Transfer"],
+              "meta:enum": {
+                "Credit Card": "신용카드",
+                "PayPal": "페이팔",
+                "Debit Card": "체크카드",
+                "Bank Transfer": "계좌이체"
+              }
+            },
+            "shippingAddress": {
+              "type": "string",
+              "title": "Shipping Address",
+              "description": "배송 주소"
+            }
+          }
+        }
+      },
+      "required": ["timestamp", "eventType"]
+    }
+  ],
+  "meta:status": "stable",
+  "meta:createdDate": "2024-01-01",
+  "meta:tenantNamespace": "_acssandboxgdctwo"
+}

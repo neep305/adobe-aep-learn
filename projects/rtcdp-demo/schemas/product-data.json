@@ -1,0 +1,132 @@
+[
+  {
+    "_rtcdpDemo": {
+      "productId": "PROD001",
+      "productName": "Wireless Headphones",
+      "category": "Electronics",
+      "price": 199.99,
+      "stockQuantity": 50,
+      "description": "High-quality wireless headphones with noise cancellation",
+      "brand": "Sony",
+      "isActive": true,
+      "createdAt": "2026-01-18T18:02:02.674324Z"
+    }
+  },
+  {
+    "_rtcdpDemo": {
+      "productId": "PROD002",
+      "productName": "Smartphone",
+      "category": "Electronics",
+      "price": 899.99,
+      "stockQuantity": 30,
+      "description": "Latest smartphone with advanced camera features",
+      "brand": "Apple",
+      "isActive": true,
+      "createdAt": "2026-01-18T18:02:02.674324Z"
+    }
+  },
+  {
+    "_rtcdpDemo": {
+      "productId": "PROD003",
+      "productName": "Coffee Maker",
+      "category": "Appliances",
+      "price": 79.99,
+      "stockQuantity": 20,
+      "description": "Programmable coffee maker with thermal carafe",
+      "brand": "Breville",
+      "isActive": true,
+      "createdAt": "2026-01-18T18:02:02.674324Z"
+    }
+  },
+  {
+    "_rtcdpDemo": {
+      "productId": "PROD004",
+      "productName": "Yoga Mat",
+      "category": "Sports",
+      "price": 29.99,
+      "stockQuantity": 100,
+      "description": "Non-slip yoga mat for all fitness levels",
+      "brand": "Gaiam",
+      "isActive": true,
+      "createdAt": "2026-01-18T18:02:02.674324Z"
+    }
+  },
+  {
+    "_rtcdpDemo": {
+      "productId": "PROD005",
+      "productName": "Novel",
+      "category": "Books",
+      "price": 14.99,
+      "stockQuantity": 200,
+      "description": "Bestselling fiction novel",
+      "brand": "Random House",
+      "isActive": true,
+      "createdAt": "2026-01-18T18:02:02.674324Z"
+    }
+  },
+  {
+    "_rtcdpDemo": {
+      "productId": "PROD006",
+      "productName": "Laptop",
+      "category": "Electronics",
+      "price": 1299.99,
+      "stockQuantity": 15,
+      "description": "Powerful laptop for work and gaming",
+      "brand": "Dell",
+      "isActive": true,
+      "createdAt": "2026-01-18T18:02:02.674324Z"
+    }
+  },
+  {
+    "_rtcdpDemo": {
+      "productId": "PROD007",
+      "productName": "Running Shoes",
+      "category": "Sports",
+      "price": 129.99,
+      "stockQuantity": 75,
+      "description": "Comfortable running shoes with cushioning",
+      "brand": "Nike",
+      "isActive": true,
+      "createdAt": "2026-01-18T18:02:02.674324Z"
+    }
+  },
+  {
+    "_rtcdpDemo": {
+      "productId": "PROD008",
+      "productName": "Blender",
+      "category": "Appliances",
+      "price": 49.99,
+      "stockQuantity": 40,
+      "description": "High-speed blender for smoothies",
+      "brand": "Oster",
+      "isActive": true,
+      "createdAt": "2026-01-18T18:02:02.674324Z"
+    }
+  },
+  {
+    "_rtcdpDemo": {
+      "productId": "PROD009",
+      "productName": "Board Game",
+      "category": "Games",
+      "price": 24.99,
+      "stockQuantity": 60,
+      "description": "Fun family board game",
+      "brand": "Hasbro",
+      "isActive": true,
+      "createdAt": "2026-01-18T18:02:02.674324Z"
+    }
+  },
+  {
+    "_rtcdpDemo": {
+      "productId": "PROD010",
+      "productName": "Candle",
+      "category": "Home",
+      "price": 12.99,
+      "stockQuantity": 150,
+      "description": "Scented soy candle",
+      "brand": "Yankee Candle",
+      "isActive": true,
+      "createdAt": "2026-01-18T18:02:02.675322Z"
+    }
+  }
+]

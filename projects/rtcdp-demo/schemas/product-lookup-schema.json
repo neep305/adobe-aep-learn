@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RTCDP Demo - Product Lookup",
+  "description": "상품 마스터 Lookup 스키마 - product.csv 데이터 매핑용",
+  "type": "object",
+  "meta:class": "https://ns.adobe.com/xdm/classes/product",
+  "meta:extensible": true,
+  "meta:abstract": false,
+  "meta:behavior": "record",
+  "allOf": [
+    {
+      "$ref": "https://ns.adobe.com/xdm/data/record"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "_acssandboxgdctwo": {
+          "type": "object",
+          "title": "RTCDP Demo Product",
+          "description": "RTCDP 데모용 상품 정보",
+          "properties": {
+            "productId": {
+              "type": "string",
+              "title": "Product ID",
+              "description": "상품 고유 ID (Primary Key)"
+            },
+            "productName": {
+              "type": "string",
+              "title": "Product Name",
+              "description": "상품명"
+            },
+            "category": {
+              "type": "string",
+              "title": "Category",
+              "description": "상품 카테고리",
+              "enum": ["Electronics", "Appliances", "Sports", "Books", "Games", "Home"],
+              "meta:enum": {
+                "Electronics": "전자제품",
+                "Appliances": "가전제품",
+                "Sports": "스포츠",
+                "Books": "도서",
+                "Games": "게임",
+                "Home": "홈/리빙"
+              }
+            },
+            "price": {
+              "type": "number",
+              "title": "Price",
+              "description": "상품 가격 (USD)",
+              "minimum": 0
+            },
+            "stockQuantity": {
+              "type": "integer",
+              "title": "Stock Quantity",
+              "description": "재고 수량",
+              "minimum": 0
+            },
+            "description": {
+              "type": "string",
+              "title": "Description",
+              "description": "상품 설명"
+            },
+            "brand": {
+              "type": "string",
+              "title": "Brand",
+              "description": "브랜드"
+            },
+            "imageUrl": {
+              "type": "string",
+              "format": "uri",
+              "title": "Image URL",
+              "description": "상품 이미지 URL"
+            },
+            "isActive": {
+              "type": "boolean",
+              "title": "Is Active",
+              "description": "판매 활성화 여부",
+              "default": true
+            },
+            "createdAt": {
+              "type": "string",
+              "format": "date-time",
+              "title": "Created At",
+              "description": "상품 등록일"
+            },
+            "updatedAt": {
+              "type": "string",
+              "format": "date-time",
+              "title": "Updated At",
+              "description": "최종 수정일"
+            }
+          },
+          "required": ["productId", "productName", "price"]
+        }
+      }
+    }
+  ],
+  "meta:status": "stable",
+  "meta:createdDate": "2024-01-01",
+  "meta:tenantNamespace": "_acssandboxgdctwo",
+  "meta:usageNotes": {
+    "relationships": [
+      {
+        "referenceSchema": "commerce-event-schema.json",
+        "referenceField": "productListItems[].SKU",
+        "targetField": "_acssandboxgdctwo.productId",
+        "description": "Commerce Event의 SKU와 연결하여 상품 상세 정보 조회"
+      }
+    ],
+    "usage": "이 스키마는 Lookup 용도로 사용됩니다. Profile에 직접 저장되지 않으며, Commerce Event 등에서 상품 정보를 조회할 때 참조됩니다."
+  }
+}
