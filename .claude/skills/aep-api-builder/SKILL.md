@@ -1,6 +1,6 @@
 ---
 name: adobe-aep
-description: >
+description: 
   Adobe Experience Platform API integration for customer profile management,
   segmentation, and data querying. Use when working with Real-Time Customer
   Profiles, audience segmentation, XDM schemas, Query Service, and identity

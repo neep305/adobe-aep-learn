@@ -3,7 +3,8 @@
     "allow": [
       "Bash(curl:*)",
       "Bash(python -c:*)",
-      "Bash(findstr:*)"
+      "Bash(findstr:*)",
+      "Bash(bash \"C:\\\\Users\\\\jasonnam\\\\.claude\\\\plugins\\\\cache\\\\anthropic-agent-skills\\\\example-skills\\\\69c0b1a06741\\\\skills\\\\web-artifacts-builder\\\\scripts\\\\init-artifact.sh\" aa-ecommerce-demo)"
     ]
   }
 }
